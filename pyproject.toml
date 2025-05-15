@@ -21,7 +21,6 @@ include-package-data = false
 [tool.setuptools.package-data]
 "openalea.phenotyping_data" = ["registry.txt"]
 
-
 [project]
 name = "openalea.phenotyping_data"
 authors = [
@@ -48,7 +47,6 @@ dependencies = ["pooch"]
 
 [project.optional-dependencies]
 test = ["pytest"]
-
 
 [tool.setuptools.dynamic]
 readme = {file = ["README.md"]}
