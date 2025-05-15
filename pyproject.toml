@@ -17,6 +17,10 @@ where = ["src"]
 [tool.setuptools]
 include-package-data = false
 
+# explicit selection of data to be shiped with sources
+[tool.setuptools.package-data]
+"openalea.phenotyping_data" = ["registry.txt"]
+
 
 [project]
 name = "openalea.phenotyping_data"
