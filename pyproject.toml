@@ -1,0 +1,50 @@
+[build-system]
+requires = [
+  "setuptools",
+  "setuptools-scm",
+]
+build-backend = "setuptools.build_meta"
+
+# enable dynamic version based on git tags
+[tool.setuptools_scm]
+
+# allow openalea to be a namespace package
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# force explicit declaration of data 
+#(and avoid undesired automatic 'all-git' inclusions by setuptools-scm)
+[tool.setuptools]
+include-package-data = false
+
+
+[project]
+name = "openalea.phenotyping_data"
+authors = [
+  { name = "Simon Artzet"},
+  { name = "Christian Fournier"},
+  { name = "Mielewczik Michael"},
+  { name = "Brichet Nicolas"},
+  { name = "Chopard Jerome"},
+  { name = "Christophe Pradal"},
+  { name = "Benoit Daviet"},
+]
+description = "A sample of phenotyping data for 3D shoot architecture reconstruction and image analysis"
+requires-python = ">=3.9"
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Scientific/Engineering",
+]
+license = "CECILL-C"
+license-files = ["LICEN[CS]E*"]
+dynamic = ["version", "readme"]
+dependencies = ["pooch"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.md"]}
