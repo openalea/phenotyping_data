@@ -3,9 +3,10 @@
 
 ## usage
 
-    from openalea.phenotyping_data.fetch import get_data, list_data
+    from openalea.phenotyping_data.fetch import fetch_data, list_data, fetch_all_data
     list_data()
-    path = get_data('plant_1/raw/side/0.png')
+    path = fetch_data('plant_1/raw/side/0.png')
+    datadir = fetch_all_data('plant_1/raw')
 
 ## update registry
     

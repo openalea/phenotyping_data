@@ -1,0 +1,4 @@
+# Force LF (Unix-style) line endings for common text formats
+*.json  text eol=lf
+*.txt   text eol=lf
+*.csv   text eol=lf

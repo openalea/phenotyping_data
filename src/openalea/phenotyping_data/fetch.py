@@ -1,4 +1,4 @@
-import os.path as osp
+from pathlib import Path
 from importlib.resources import files, as_file
 import pooch
 
@@ -15,7 +15,7 @@ with as_file(REGISTRY) as registry_path:
     POOCH.load_registry(registry_path)
 
 
-def get_data(filename):
+def fetch_data(filename):
     return POOCH.fetch(filename)
 
 
@@ -23,11 +23,11 @@ def list_data(prefix=""):
     return [name for name in POOCH.registry if name.startswith(prefix)]
 
     
-def get_all_data(prefix=""):
+def fetch_all_data(prefix=""):
     for filename in list_data(prefix):
-        get_data(filename)
+        fetch_data(filename)
         
-    data_dir = osp.join(str(POOCH.abspath), 'data', prefix)
+    data_dir = Path(str(POOCH.abspath)) / prefix
     
     return data_dir
 
