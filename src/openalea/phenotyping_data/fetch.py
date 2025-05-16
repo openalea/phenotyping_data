@@ -1,5 +1,6 @@
-import pooch
+import os.path as osp
 from importlib.resources import files, as_file
+import pooch
 
 REGISTRY = files('openalea.phenotyping_data') / 'registry.txt'
 BASE_URL = "https://raw.githubusercontent.com/openalea/phenotyping_data/main/data/"
@@ -21,4 +22,12 @@ def get_data(filename):
 def list_data(prefix=""):
     return [name for name in POOCH.registry if name.startswith(prefix)]
 
+    
+def get_all_data(prefix=""):
+    for filename in list_data(prefix):
+        get_data(filename)
+        
+    data_dir = osp.join(str(POOCH.abspath), 'data', prefix)
+    
+    return data_dir
 
