@@ -17,8 +17,6 @@ source:
 
 build:
   noarch: python
-  number: 0
-  preserve_egg_dir: True
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-build-isolation -vv
 
@@ -35,6 +33,13 @@ requirements:
     - {{ dep }}
     {% endfor %}
 
+test:
+  requires:
+    - pytest
+  source_files:
+    - test/
+  commands:
+    - pytest
 
 about:
   home: {{ home }}

@@ -16,7 +16,7 @@ with as_file(REGISTRY) as registry_path:
 
 
 def fetch_data(filename):
-    return POOCH.fetch(filename)
+    return Path(POOCH.fetch(filename))
 
 
 def list_data(prefix=""):
